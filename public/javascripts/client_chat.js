@@ -1,6 +1,5 @@
 //Connexion a socket.io
-//var socket = io.connect('http://localhost:3000');     //Si on bosse en local
-var socket = io.connect('https://chat-nico.herokuapp.com');
+var socket = io.connect('https://chat-nico.herokuapp.com/');     //Si on bosse en local
 
 //Liste des amis de l'utilisateur
 var liste_amis = [];
@@ -34,6 +33,8 @@ var nom_ami = '';
 //Une variable globale qui nous indique combien de messages historiques ont ete charges
 var nombre_total_messages_historiques_charges = 0;
 
+//cette variable permettra de mesurer le temps ecoule entre chaque moment ou l'utilisateur tapera sur le clavier pour afficher le message de frappe en cours
+var tempo_typing = Date.now();
 
 ////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// SOCKET ////////////////////////////////////////
@@ -261,6 +262,29 @@ socket.on('nouveaux_messages_historique_a_afficher', function(message) {
         creation_div_avec_utilisateur_et_messages('div_fin_historique', fenetre_chat_messages, 'Fin de l\'historique', 'Message', 'div_mise_en_forme_fin_historique', true);
     }
 });
+
+
+
+//Quand le serveur indique que le correspondant tape au clavier
+socket.on('action_client_typing', function(message) {
+    
+    //On l'indique au dessus du textarea
+    var p_typing = document.getElementById('p_typing');
+    p_typing.textContent = message.utilisateur_qui_tape + ' compose un message ';
+    var div_typing = document.getElementById('div_typing');
+    div_typing.style.display = 'flex';
+});
+
+
+
+socket.on('action_client_stop_typing', function(message) {
+    
+    var p_typing = document.getElementById('p_typing');
+    p_typing.textContent = '';
+    var div_typing = document.getElementById('div_typing');
+    div_typing.style.display = 'none';
+});
+
 
 
 
@@ -776,11 +800,36 @@ formulaire_validation_ajout_ami.addEventListener("click", function(e) {
 });
                     
    
+
+//Lorsque quqlqu'un tape au clavier - On veut que cela soit indique pour le correspondant
+var textarea_message = document.getElementById('textarea_message');
+textarea_message.addEventListener("keydown", function(e) {
     
+    //Si la touche est differente de entree
+    if(e.keyCode != 13){
+        //On recupere le timestamp du moment ou la touche a ete frappee
+        tempo_typing = Date.now();
+        socket.emit('client_typing', {room: choix_room, utilisateur_qui_tape: nom_utilisateur});
+    }
+});
+//arrete de taper au clavier, au n=bout de 5 sec d'inactivite...
+textarea_message.addEventListener("keyup", stop_typing);
+function stop_typing(e) {
     
-
-
-
+    //Si la touche est 'entree' on vien td'envoyer le message donc il faut tout de suite couper l'affichage de l'utilisateur en train d'ecrire
+    if(e.keyCode == 13){
+        socket.emit('client_stopped_typing', {room: choix_room, utilisateur_qui_tape_plus: nom_utilisateur});
+    }
+    //Sinon on met une tempo de 5 sec pour dire que l'utilisateur ne tape plus
+    else{
+        setTimeout(function() {
+            //Lors de la tentative d'execution de la fonction, si une touche a ete frappee avant 5000ms, on n'active pas l'evenement
+            if(Date.now() > tempo_typing + 5000){
+               socket.emit('client_stopped_typing', {room: choix_room, utilisateur_qui_tape_plus: nom_utilisateur});
+            }
+        }, 5000);
+    }
+}
 
 
 

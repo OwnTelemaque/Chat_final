@@ -4,8 +4,8 @@ html
     title Chat
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet', media='screen', href='https://chat-nico.herokuapp.com/stylesheets/style.css')
-    link(rel='icon', type='image/png', href='https://chat-nico.herokuapp.com/images/favicon.png')
+    link(rel='stylesheet', media='screen', href='http://localhost:3000/stylesheets/style.css')
+    link(rel='icon', type='image/png', href='http://localhost:3000/images/favicon.png')
   body
     #div_overlay_ajax_loader
       img(src='images/ajax-loader.gif', alt='ajax_loader')
@@ -26,6 +26,10 @@ html
           p#p_room Vous etes sur le chat principal
         #div_fenetre_chat
           #fenetre_chat_messages
+          #fenetre_chat_ami_ecrit
+            #div_typing
+              p#p_typing
+              img#img_typing(src='images/typing.gif', alt='typing')
           #fenetre_chat_formulaire
             form#formulaire_redaction(method='GET', action='')
               textarea#textarea_message(rows='4', form='formulaire_redaction', placeholder='Appuyez sur shift+enter pour un retour a la ligne', required='')  

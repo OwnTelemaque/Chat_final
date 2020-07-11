@@ -79,7 +79,7 @@ io.use(passportSocketIo.authorize({
 
 
 //Connexion a Mongoose
-var dev_db_url = 'mongodb+srv://OwnTelemaque:fanette05@nico-4hwvd.azure.mongodb.net/Chat_final?retryWrites=true&w=majority';
+var dev_db_url = 'mongodb+srv://OwnTelemaque:fanette05@nico-4hwvd.azure.mongodb.net/Test_Passport?retryWrites=true&w=majority';
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 //On se connecte a la base de donnees
@@ -295,8 +295,6 @@ io.sockets.on('connection', function(socket){
     });
     
     
-    
-    
     //Demande de la liste des utilisateurs connectes
     socket.on('recuperer_liste_utilisateurs_connectes', function() {
         //On repond en envoyant la liste
@@ -304,7 +302,15 @@ io.sockets.on('connection', function(socket){
     });
     
     
-
+    //Un utilisateur tape au clavier
+    socket.on('client_typing', function (message) {
+        socket.to(nom_room).emit('action_client_typing', {utilisateur_qui_tape: message.utilisateur_qui_tape});
+    });
+    
+    //Un utilisateur cesse de taper au clavier
+    socket.on('client_stopped_typing', function (message) {
+        socket.to(nom_room).emit('action_client_stop_typing', {utilisateur_qui_tape_plus: message.utilisateur_qui_tape_plus});
+    });
     
     
     //Deconnexion de la room pour un retour au chat principal
