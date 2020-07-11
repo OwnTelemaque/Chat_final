@@ -4,8 +4,8 @@ html
     title Chat - Login
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet', media='screen', href='http://localhost:3000/stylesheets/style.css')
-    link(rel='icon', type='image/png', href='http://localhost:3000/images/favicon.png')
+    link(rel='stylesheet', media='screen', href='https://chat-nico.herokuapp.com/stylesheets/style.css')
+    link(rel='icon', type='image/png', href='https://chat-nico.herokuapp.com/images/favicon.png')
   body
     #div_genral_login
       #div_gauche_login
@@ -39,7 +39,7 @@ html
           label.label_creation(for='input_password') Mot de passe:
           br
           input#input_password(type='password', name='password' value=(undefined===nom_utilisateur ? '' : nom_utilisateur.password))
-          img#img_show_password(src='http://localhost:3000/images/show-password.png' alt='show password')
+          img#img_show_password(src='https://chat-nico.herokuapp.com/images/show-password.png' alt='show password')
           br
           br
           input#submit_register(class='submit_connexion2', type='submit', value='Nouveau')
