@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    title Chat
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', media='screen', href='http://localhost:3000/stylesheets/style.css')
+    link(rel='icon', type='image/png', href='http://localhost:3000/images/favicon.png')
+  body
+    #div_overlay_ajax_loader
+      img(src='images/ajax-loader.gif', alt='ajax_loader')
+    #div_overlay_confirmation_envoie_ajout_ami
+      form#formulaire_validation_ajout_ami(method='POST', action='')
+        label#label_confirmation_ajout_ami
+        br
+        input#input_hidden_username_ajout_ami(type='hidden')
+        input#input_hidden_id_ajout_ami(type='hidden')
+        input#submit_ajout_ami(class='submit_formulaires_validation', type='submit', value='Oui')
+      form#formulaire_annulation_ajout_ami(action='')
+          input#submit_annule_ami(class='submit_formulaires_validation', type='submit', value='Annuler')
+    #div_genral
+      #div_gauche
+        #div_titre
+          p Bienvenue #{nom_utilisateur.username}
+        #div_room
+          p#p_room Vous etes sur le chat principal
+        #div_fenetre_chat
+          #fenetre_chat_messages
+          #fenetre_chat_formulaire
+            form#formulaire_redaction(method='GET', action='')
+              textarea#textarea_message(rows='4', form='formulaire_redaction', placeholder='Appuyez sur shift+enter pour un retour a la ligne', required='')  
+              input#submit_message(type='submit', value='Envoyer')
+      #div_droite
+        #div_liste_amis
+          .div_contenant_titres_menu_droite
+            p#p_titre_liste_amis Liste d'amis
+          #div_affichage_amis
+            #div_affichage_amis_connectes
+            #div_affichage_amis_deconnectes
+              if liste_amis
+                for ami in liste_amis
+                  .div_ami_affiche
+                    p(id=ami.username, class='p_ami_affiche') #{ami.username}
+        #div_recherche_amis
+          #div_formulaire_recherche_amis
+            p#p_titre_recherche_amis Recherche d'amis
+            form#formulaire_recherche_amis(method='GET', action='')
+              input#input_recherche_amis(type='text', name='ami_recherche')
+              input#submit_recherche_amis(type='submit', value='Rechercher')
+          #div_affichage_recherche_amis
+        #div_deconnexion
+          a#a_retour_chat_principal(href='') Retour au chat principal
+          a#a_deconnexion(href='/logout') Deconnexion
+    script(src='javascripts/socket.io.js')
+    script(src='javascripts/client_chat.js')
+    if pending_demands != ''
+      script(src='javascripts/pending_demands.js')

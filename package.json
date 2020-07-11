@@ -1,0 +1,33 @@
+{
+  "name": "chat",
+  "version": "0.0.0",
+  "engines": {
+    "node": "12.16.3"
+  },
+  "private": true,
+  "scripts": {
+    "devstart": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "dev:server": "nodemon ./bin/www --ignore ./tmp/sessions/"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.5.0",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.9.19",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1",
+    "passport.socketio": "^3.7.0",
+    "pug": "^3.0.0",
+    "session-file-store": "^1.4.0",
+    "socket.io": "^2.3.0",
+    "uuid": "^8.1.0"
+  }
+}

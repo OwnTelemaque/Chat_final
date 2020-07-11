@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Chat - Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" media="screen" href="http://localhost:3000/stylesheets/style.css" />
+        <link rel="icon" type="image/png" href="http://localhost:3000/images/favicon.png" />
+    </head>
+    <body>
+        <div id="div_genral_login">
+            
+            
+            <div id="div_gauche_login">   
+                <p>Connexion a un compte existant:</p>
+                
+                <form method="POST" action="/login" id="formulaire_connexion">
+                    
+                    <input type="hidden" name="username" value="nico">
+                    <input type="hidden" name="password" value="test">
+                    
+                    <input id="submit_connexion" type="submit" value="Connexion">
+                </form>
+                
+                
+            </div>
+            
+            
+            <div id="div_droite_login">   
+               <p>Creer un nouveau compte:</p>
+               
+               
+               <form method="POST" action="/register" id="formulaire_register">
+                    
+                    <input type="text" name="username">
+                    <input type="text" name="password">
+                    
+                    <input id="submit_register" type="submit" value="Nouveau">
+                </form>
+               
+               
+               
+            </div>
+            
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    title Chat - Login
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', media='screen', href='http://localhost:3000/stylesheets/style.css')
+    link(rel='icon', type='image/png', href='http://localhost:3000/images/favicon.png')
+  body
+    #div_genral_login
+      #div_gauche_login
+        p#p_login_connexion(class='p_login') Connexion a un compte existant:
+        form#formulaire_connexion(method='POST', action='/login')
+          // input#id_username(type='hidden', name='username', value='sdurricate')
+          // input(type='hidden', name='password', value='fanette')
+          label.label_connexion(for='id_username') Nom du compte:
+          br
+          input#id_username(type='text', name='username')
+          br
+          br
+          label.label_connexion(for='password') Mot de passe:
+          br
+          input#password(type='password', name='password')
+          br
+          br
+          input#submit_connexion(class='submit_connexion1', type='submit', value='Connexion')
+        if messages
+          ul
+            for message in messages
+              li!= message
+      #div_droite_login
+        p#p_login_creation(class='p_login') Creer un nouveau compte:
+        form#formulaire_register(method='POST', action='/register')
+          label.label_creation(for='new_username') Nom du compte:
+          br
+          input#new_username(type='text', name='username' value=(undefined===nom_utilisateur ? '' : nom_utilisateur.username))
+          br
+          br
+          label.label_creation(for='input_password') Mot de passe:
+          br
+          input#input_password(type='password', name='password' value=(undefined===nom_utilisateur ? '' : nom_utilisateur.password))
+          img#img_show_password(src='http://localhost:3000/images/show-password.png' alt='show password')
+          br
+          br
+          input#submit_register(class='submit_connexion2', type='submit', value='Nouveau')
+        if errors 
+          ul
+            for error in errors
+              li!= error.msg
+  script(src='javascripts/client_login.js')

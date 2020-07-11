@@ -1,0 +1,618 @@
+@font-face {
+    font-family: 'lorabold';
+    src:
+        url('../fonts/LoraWebfontkit/lora-bold-webfont.woff2') format('woff2'),
+        url('../fonts/LoraWebfontkit/lora-bold-webfont.woff') format('woff'),
+        url('../fonts/LoraWebfontkit/lora-bold-webfont.ttf') format('truetype'),
+        url('../fonts/LoraWebfontkit/lora-bold-webfont.eot?') format('eot'),
+        url('../fonts/LoraWebfontkit/lora-bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/LoraWebfontkit/lora-bold-webfont.svg#lorabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'lorabold_italic';
+    src:
+        url('../fonts/LoraWebfontkit/lora-bolditalic-webfont.woff2') format('woff2'),
+        url('../fonts/LoraWebfontkit/lora-bolditalic-webfont.woff') format('woff'),
+        url('../fonts/LoraWebfontkit/lora-bolditalic-webfont.ttf') format('truetype'),
+        url('../fonts/LoraWebfontkit/lora-bolditalic-webfont.eot?') format('eot'),
+        url('../fonts/LoraWebfontkit/lora-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/LoraWebfontkit/lora-bolditalic-webfont.svg#lorabold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'loraitalic';
+    src: 
+        url('../fonts/LoraWebfontkit/lora-italic-webfont.woff2') format('woff2'),
+        url('../fonts/LoraWebfontkit/lora-italic-webfont.woff') format('woff'),
+        url('../fonts/LoraWebfontkit/lora-italic-webfont.ttf') format('truetype'),
+        url('../fonts/LoraWebfontkit/lora-italic-webfont.eot?') format('eot'),
+        url('../fonts/LoraWebfontkit/lora-italic-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/LoraWebfontkit/lora-italic-webfont.svg#loraitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'loraregular';
+    src: 
+        url('../fonts/LoraWebfontkit/lora-regular-webfont.woff2') format('woff2'),
+        url('../fonts/LoraWebfontkit/lora-regular-webfont.woff') format('woff'),
+        url('../fonts/LoraWebfontkit/lora-regular-webfont.ttf') format('truetype'),
+        url('../fonts/LoraWebfontkit/lora-regular-webfont.eot?') format('eot'),
+        url('../fonts/LoraWebfontkit/lora-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/LoraWebfontkit/lora-regular-webfont.svg#loraregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html{
+    height: 100%;
+    width: 100%;
+   /* background-color: rgb(43,180,230, 0.8); */
+  /* background-image: radial-gradient(circle at top left, #2bd8e6, white);
+   background-size: 100%; */
+  
+  background-image: url('../images/main.jpg'); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+body {
+    width: 100%;
+    height: 95%;
+    /*padding-top: 50px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 14px "loraregular", Helvetica, Arial, sans-serif;
+    
+    
+    
+      
+ 
+   /* background-size: 100%; */
+    
+}
+
+a {
+    color: #00B7FF;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+/* Page de LOGIN */
+
+
+#div_genral_login{
+    width: 90%;
+    display: flex;
+}
+
+.p_login{
+    font-family: loraregular, Helvetica, Arial, sans-serif;
+    font-size: 22px;
+}
+
+#p_login_connexion{
+    color: white;
+}
+
+.label_connexion{
+    font-family: loraregular, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+.label_creation{
+    font-family: loraregular, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #530058;
+}
+
+.submit_connexion1{
+    width: 100%;
+    color: #530058;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    height: 25px;
+}
+
+.submit_connexion2{
+    width: 100%;
+    color: white;
+    border-radius: 4px;
+    background-color: #ea8ca6;
+    font-size: 14px;
+    height: 25px;
+}
+
+
+#img_show_password{
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+
+#p_login_creation{
+    color: #530058;
+}
+
+#div_gauche_login{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#div_droite_login{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#img_show_password{
+    width: 20px;
+}
+
+
+
+
+
+
+
+/* OVERLAYS */
+
+
+#div_overlay_confirmation_envoie_ajout_ami{
+
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, rgb(255,255,255, 0) , rgb(229,123,146, 0.8), rgb(255,255,255, 0));
+}
+
+#formulaire_validation_ajout_ami{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+
+.div_overlay_pending_demands{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-image: linear-gradient(to right, rgb(255,255,255, 0) , rgb(229,123,146, 0.8), rgb(255,255,255, 0));
+    
+  
+}
+
+.message_information_ajout{
+    font-family: loraregular, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+  /*  text-shadow: white 0.1em 0.1em 0.1em; */
+}
+
+
+.formulaire_pending{
+    width: 6%;
+}
+
+.submit_formulaires_validation{
+    margin: 5px;
+    width: 100%;
+    color: white;
+    border-radius: 10px;
+    background-color: #b751b7;
+    font-size: 14px;
+}
+
+.submit_formulaires_validation:hover{
+    margin: 5px;
+    width: 100%;
+    color: #b751b7;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 14px;
+}
+
+
+
+
+
+#submit_ajout_ami{
+    width: 100px;
+}
+#submit_annule_ami{
+    width: 100px;
+}
+
+
+
+
+#div_overlay_ajax_loader{
+    width: 50%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Page de CHAT */
+
+
+#div_genral{
+    width: 90%;
+    height: 90%;
+    display: flex;
+ /*   border: 1px solid black; */
+}
+
+#div_gauche{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0.8;
+/*    border: 1px solid blue; */
+}
+
+#div_titre{
+    width: 100%;
+    height: 5%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+   /* border: 1px solid orange; */
+}
+
+#div_titre p {
+    font: 30px 'lorabold_italic', Helvetica, Arial, sans-serif;
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    
+}
+
+
+
+#div_room{
+    font: 20px 'lorabold', Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+}
+
+
+
+#p_room{
+    margin: 0px;
+    text-shadow: white 2px 2px 20px; 
+    color: #530058;
+}
+
+
+    
+
+#div_fenetre_chat{
+    width: 90%;
+    height: 80%;
+    border-radius: 20px;
+    /*border: 2px solid red;*/
+    background-color: white;
+    padding: 10px;
+}
+
+#fenetre_chat_messages{
+    height: 80%;
+    margin-left: 1%;
+    margin-right: 1%;
+    
+    overflow: auto;
+    margin-bottom: 2%;
+    padding-right: 1%;
+   
+}
+
+.div_nouveau_message_emetteur{
+    margin-top: 20px;
+    color: #742078;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.div_nouveau_message_destinataire{
+    margin-top: 20px;
+    color: #cf387b;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.div_fin_historique{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: red;
+}
+
+
+.div_mise_en_forme_destinatire{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+ 
+}
+
+.div_mise_en_forme_emetteur{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.p_nom_utilisateur{
+    font: 20px "loraitalic", Helvetica, Arial, sans-serif;
+    color: pink;
+    font-style: italic;
+    margin: 0px;
+ 
+}
+
+.p_message{
+    font: 20px "loraitalic", Helvetica, Arial, sans-serif;
+    margin: 0px;
+    white-space: pre-wrap;  /*Pour recuperer nos retours a la ligne*/
+}
+
+
+#fenetre_chat_formulaire{
+    height: 10%;
+    
+}
+
+
+#formulaire_redaction{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+#textarea_message{
+    font: 18px "loraitalic", Helvetica, Arial, sans-serif;
+    border-radius: 10px;
+    width: 90%;
+    padding: 5px;
+    border: 0.1px solid #742078;  
+    
+    box-shadow: none;
+}
+
+#submit_message{
+    height: 100%;
+    border-radius: 8px;
+    background-color: #ea8ca6;
+    color: white;
+    font-size: 14px;
+}
+
+
+
+
+#div_droite{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+ /*   border: 1px solid green;  */
+    
+
+}
+
+#div_liste_amis{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  /*  border: 1px solid yellow;  */
+    
+}
+
+#div_affichage_amis{
+  /*  border: 1px solid red; */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+
+
+
+#p_titre_liste_amis{
+    
+    color: #A11866;
+    font: 20px "loraitalic", Helvetica, Arial, sans-serif;
+}
+
+
+.div_ami_affiche{
+
+}
+
+
+#div_affichage_amis_deconnectes{
+
+}
+
+
+
+.p_ami_affiche_connecte{
+    margin: 0px;
+    color: #A11866;
+    cursor: pointer;
+    font-family: lorabold_italic, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+    width: max-content;
+
+}
+
+
+.p_ami_affiche_deconnecte{
+    margin: 0px;
+    color: lightgrey;
+    cursor: auto;
+    font-family: lorabold_italic, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+    width: max-content;
+
+}
+
+#div_recherche_amis{
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+ /*   border: 1px solid yellow; */
+}
+
+#p_titre_recherche_amis{
+    
+    font-family: loraitalic, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #A11866;
+    
+}
+
+
+#div_formulaire_recherche_amis{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#input_recherche_amis{
+    
+    border: 0.1px solid #742078;  
+    box-shadow: none;
+}
+
+
+#submit_recherche_amis{
+    height: 100%;
+    border-radius: 4px;
+    background-color: #ea8ca6;
+    color: white;
+    font-size: 14px;
+}
+
+
+
+
+#div_affichage_recherche_amis{
+    height: 100%;
+/*    border: 1px solid blue; */
+    overflow: auto;
+}
+
+
+
+
+.div_ami_trouve{
+ 
+}
+
+
+.p_ami_affiche{
+    margin: 0px;
+    font-family: lorabold_italic, Helvetica, Arial, sans-serif;
+    color: lightgray;
+    font-size: 20px;
+    margin-bottom: 5px;
+    
+}
+
+
+.a_ami_trouve{
+    margin: 0px;
+    color: #f5c1ce;
+    cursor: pointer;
+    font-family: lorabold_italic, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    width: max-content;
+
+}
+
+.p_demande_ami_en_cours{
+    margin: 0px;
+    color: #e6509a;
+    cursor: auto;
+    font-family: lorabold_italic, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    width: max-content;
+
+}
+
+
+#div_deconnexion{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#a_retour_chat_principal{
+    font-family: loraregular, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: #530058;
+}
+
+#a_deconnexion{
+    font-family: loraregular, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: #530058;
+}
+
+
+
+
+
+
+
