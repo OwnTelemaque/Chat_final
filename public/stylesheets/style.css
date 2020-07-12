@@ -393,9 +393,27 @@ a:link {
 }
 
 
+#fenetre_chat_ami_ecrit{
+    height: 3%;
+    min-height: 15px;
+    margin-bottom: 8px;
+}
+
+#div_typing{
+    display: none;
+    height: 100%;
+}
+#p_typing{
+    margin: 0px;
+    font: 15px "loraitalic", Helvetica, Arial, sans-serif;
+    color: #530058;
+}
+#img_typing{
+    height: 100%;
+}
+
 #fenetre_chat_formulaire{
-    height: 10%;
-    
+    height: 15%;
 }
 
 
@@ -413,7 +431,7 @@ a:link {
     width: 90%;
     padding: 5px;
     border: 0.1px solid #742078;  
-    
+    min-height: 40px;
     box-shadow: none;
 }
 
