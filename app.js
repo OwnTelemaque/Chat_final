@@ -79,7 +79,7 @@ io.use(passportSocketIo.authorize({
 
 
 //Connexion a Mongoose
-var dev_db_url = 'mongodb+srv://OwnTelemaque:fanette05@nico-4hwvd.azure.mongodb.net/Chat_final?retryWrites=true&w=majority';
+var dev_db_url = 'mongodb+srv://OwnTelemaque:fanette05@nico.njexbwl.mongodb.net/?retryWrites=true&w=majority&appName=Nico';
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 //On se connecte a la base de donnees
